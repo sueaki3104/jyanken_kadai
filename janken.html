@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/sample.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <title>じゃんけんをしよう！</title>
+</head>
+
+<body>
+  <header>
+    <h3>✊✌️🖐2022　ワンピース　じゃんけん福岡大会✊✌️🖐</h3>
+  </header>
+
+  <div class="explanation">
+    <h2>ルール説明</h2>
+    <p>このじゃんけん大会のルール</p>
+    <p>あなたは下にある　ルフィ　チョッパー　バギー　のいずれかをクリックしてください</p>
+    <p>そうするとCOM側が乱数を使ってランダムにグー　チョキ　パー　を出します</p>
+    <p>じゃんけんの結果が表示されます</p>
+
+  </div>
+  
+  <main>
+    <h2>あなたの手を選択してください</h2>
+    <ul id="photo_01">
+      <li id="gu_btn"> <img src="./img/onepiece01_luffy.png" alt="ルフィー"></li> 
+      <li id="cho_btn"> <img src="./img/onepiece06_chopper.png" alt="チョッパー"></li>
+      <li id="par_btn"> <img src="./img/onepiece12_buggy.png "alt="バギー"></li>
+    </ul>
+    <br>
+    
+    <ul>
+      <li>あなたの手</li>
+      <li>COMの手</li>
+    </ul>
+    <ul>
+      <li><img src="" alt="playerImg">
+      <li><img src="" alt="comImage"></li>
+    </ul>
+    
+    <div id="com_hand">コンピュータの出した手は？</div>
+    <br>
+    <div id="result">ジャンケンの勝敗は？</div>
+  </main>
+
+  <footer>✊✌️🖐２０２２　ワンピース　じゃんけん福岡大会実行委員会✊✌️🖐</footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    //ここに処理を追加
+    // グーをユーザーが押した時
+  $('#gu_btn').on('click', function () {
+  
+    // 乱数を使ってCOMのジャンケンを出す
+    const min = 0;
+    const max = 2;
+    const randamNumber0 = Math.floor(Math.random() * (max - min + 1));
+    console.log(randamNumber0); 
+
+    if (randamNumber0 === 0) {
+      $("#com_hand").text('コンピュータの出した手は？ ✊グー');
+      $("#result").text('あいこです');
+    } else if (randamNumber0 === 1) {
+      $("#com_hand").text('コンピュータの出した手は？ ✌️チョキ');
+      $("#result").text('あなたの勝ちです😁');
+    } else if (randamNumber0 === 2) {
+      $("#com_hand").text('コンピュータの出した手は？ ✋パー');
+      $("#result").text('あなたの負けです😭');
+    }
+    });
+
+
+    // チョキをユーザーが押した時
+  $('#cho_btn').on('click', function () {
+
+      // 乱数を使ってCOMのジャンケンを出す
+      const min = 0;
+      const max = 2;
+      const randamNumber1 = Math.floor(Math.random() * (max - min + 1));
+      console.log(randamNumber1);
+
+      if (randamNumber1 === 0) {
+        $("#com_hand").text('コンピュータの出した手は？ ✊グー');
+        $("#result").text('あなたの負けです😭');
+      } else if (randamNumber1 === 1) {
+        $("#com_hand").text('コンピュータの出した手は？ ✌️チョキ');
+        $("#result").text('あいこです');
+      } else if (randamNumber1 === 2) {
+        $("#com_hand").text('コンピュータの出した手は？ ✋パー');
+        $("#result").text('あなたの勝ちです😁');
+
+      }
+  });
+
+  // パーをユーザーが押した時
+  $('#par_btn').on('click', function () {
+
+      // 乱数を使ってCOMのジャンケンを出す
+      const min = 0;
+      const max = 2;
+      const randamNumber2 = Math.floor(Math.random() * (max - min + 1));
+      console.log(randamNumber2);
+
+      if (randamNumber2 === 0) {
+        $("#com_hand").text('コンピュータの出した手は？ ✊グー');
+        $("#result").text('あなたの勝ちです😁');
+      } else if (randamNumber2 === 1) {
+        $("#com_hand").text('コンピュータの出した手は？ ✌️チョキ');
+        $("#result").text('あなたの負けです😭');
+      } else if (randamNumber2 === 2) {
+        $("#com_hand").text('コンピュータの出した手は？ ✋パー');
+        $("#result").text('あいこです');
+      }
+
+
+  });
+  </script>
+
+</body>
+
+</html>
